@@ -35,7 +35,7 @@
                       <i class="fa fa-shopping-cart"></i>Tambah Ke Keranjang</button>
                     </form>
 
-                    <a class="btn btn-primary" href="{{ url('home') }}">Kembali</a>
+                    <a class="btn btn-primary" href="{{ url('menu') }}">Kembali</a>
                   
                   </div>
                 </div>

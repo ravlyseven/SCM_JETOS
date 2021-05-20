@@ -50,7 +50,7 @@ class MenuController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = Product::findOrFail($id);
+        $data = Menu::findOrFail($id);
         $data->name = $request->get('name');
         $data->price = $request->get('price');
         $data->description = $request->get('description');
