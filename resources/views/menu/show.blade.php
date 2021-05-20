@@ -28,7 +28,7 @@
                     <p class="mb-4">{{$menu->description}}</p>
                     <hr>
                     <p>Masukkan Jumlah Pesanan :</p>
-                    <form action="{{ url('orders') }}/{{ $menu->id }}" method="post" class="d-inline">
+                    <form action="{{ url('order') }}/{{ $menu->id }}" method="post" class="d-inline">
                       @csrf
                       <input type="number" name="total_order" class="form-control mb-3">
                       <button type="submit" class="btn btn-warning">
