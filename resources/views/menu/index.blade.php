@@ -6,7 +6,7 @@
     <a href="menu/create"class="btn btn-primary ml-3 mb-3">Tambah Data</a>
     @endif
         <div class="row">
-            <!-- Tampilan Produk -->
+            <!-- Tampilan Menu -->
             @foreach($menus as $menu)
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
@@ -23,7 +23,7 @@
 
                                 @if(\Auth::user()->role == 0)
                                 <a class="btn btn-primary" href="menu/{{ $menu->id }}/edit" class="card-link">Ubah</a>
-                                <form action="menu/{{ $product->id }}" method="post" class="d-inline">
+                                <form action="menu/{{ $menu->id }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger">Hapus</button>
