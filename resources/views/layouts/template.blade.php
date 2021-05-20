@@ -38,24 +38,39 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
+      <!-- Nav Item - home -->
       <li class="nav-item">
-          <a class="nav-link" href="{{ url('dashboard') }}">
+          <a class="nav-link" href="{{ url('home') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Home</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
         
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('restaurant') }}">
+        <a class="nav-link" href="{{ url('menu') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Restaurant</span></a>
+          <span>Restaurant Menu</span></a>
       </li>
       
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider my-0">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('laundry') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Laundry</span></a>
+      </li>
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('token') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Token Listrik</span></a>
+      </li>
 
       <!-- close Button -->
       <div class="text-center d-none d-md-inline">
