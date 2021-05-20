@@ -3,38 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use App\Restaurant;
+use App\Menu;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $restaurants = Restaurant::all();
+        return view('restaurant/index', ['restaurants' => $restaurants]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('reataurant/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = new Restaurant();
+        $data->name = $request->get('name');
+        $data->price = $request->get('price');
+        $data->stock = $request->get('stock');
+        $data->weight = $request->get('weight');
+        $data->description = $request->get('description');
+        if($request->hasFile('photo'))
+        {
+            $this->validate($request, ['photo' => 'required|image|mimes:jpeg,jpg,png,gif']);
+            $photo = $request->file('photo')->store('products', 'public');
+            $data->photo = $photo;
+        }
+        $data->save();
+        alert()->success('Create Success', 'Create Restaurant');
+        return redirect('products');
     }
 
     /**
