@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class Order extends Model
 {
     protected $fillable = array('*');
 
     public function orderdetail()
     {
-        return $this->hasMany('App\Orderdetail', 'menu_id');
+        return $this->hasMany('App\Orderdetail', 'order_id');
     }
     public function user()
     {

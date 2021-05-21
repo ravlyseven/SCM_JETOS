@@ -13,7 +13,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <img class="img-thumbnail" src="{{ asset('storage/'.$menu->photo) }}">
+                                <a class="text-dark" href="menu/{{ $menu->id }}">
+                                    <img class="img-thumbnail" src="{{ asset('storage/'.$menu->photo) }}">
+                                </a>
                             </div>
                             <div class="col mr-2">
                                 <a href="menu/{{ $menu->id }}">
