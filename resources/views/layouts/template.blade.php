@@ -56,6 +56,15 @@
       
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('order') }}">
+          <i class="fas fa-cart-arrow-down"></i>
+          <span>Pesanan</span></a>
+      </li>
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
 
       <li class="nav-item">
         <a class="nav-link" href="{{ url('laundry') }}">
@@ -121,12 +130,6 @@
               <a class="dropdown-item" href="{{ url('profile') }}">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 Profile
-              </a>
-                          
-              <div class="dropdown-divider"></div>
-
-              <a class="dropdown-item" href="{{ url('history') }}">
-                <i class="fa fa-shopping-cart text-gray-400"></i> Riwayat Pemesanan
               </a>
 
               <div class="dropdown-divider"></div>
