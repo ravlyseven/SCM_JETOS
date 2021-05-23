@@ -16,6 +16,7 @@ class CreateListrikTable extends Migration
         Schema::create('listriks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            $table->date('tanggal');
             $table->string('token', 20);
             $table->string('status', 20);
             $table->timestamps();
@@ -31,6 +32,6 @@ class CreateListrikTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('listrik');
+        Schema::dropIfExists('listriks');
     }
 }

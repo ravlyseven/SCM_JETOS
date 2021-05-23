@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,3 +15,7 @@ Route::get('order', 'OrderController@index');
 Route::post('order/{id}', 'OrderController@pesan');
 Route::delete('order/{id}', 'OrderController@delete');
 Route::get('checkout', 'OrderController@checkout');
+
+Route::get('listrik', 'ListrikController@index')->name('listrik.index');
+Route::get('listrik/create', 'ListrikController@create');
+Route::post('listrik/create', 'ListrikController@store')->name('listrik.store');
