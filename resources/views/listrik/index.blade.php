@@ -55,9 +55,9 @@
                             <tr>
                                 <td>{{ $listrik->name }}</td>
                                 <td>{{ Carbon\Carbon::parse($listrik->tanggal)->translatedFormat('l, d F Y') }}</td>
-                                <td>{{ $listrik->token }}</td>
+                                <td>@token($listrik->token)</td>
                                 <td>{{ $listrik->status }}</td>
-                                <td><a href="listrik/detail"class="btn btn-success ml-3 mb-3">Detail</a></td>
+                                <td><a href="{{ route('listrik.detail', $listrik->id) }}"class="btn btn-success ml-3 mb-3">Detail</a></td>
                             </tr>
                             @endforeach
                         </tbody>

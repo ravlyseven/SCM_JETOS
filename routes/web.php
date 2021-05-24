@@ -19,3 +19,5 @@ Route::get('checkout', 'OrderController@checkout');
 Route::get('listrik', 'ListrikController@index')->name('listrik.index');
 Route::get('listrik/create', 'ListrikController@create');
 Route::post('listrik/create', 'ListrikController@store')->name('listrik.store');
+Route::get('listrik/detail/{id}', 'ListrikController@detail')->name('listrik.detail');
+Route::get('listrik/update/{id}', 'ListrikController@updateStatus')->name('listrik.update');

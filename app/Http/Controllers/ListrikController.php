@@ -14,7 +14,7 @@ class ListrikController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Listrik $listrik)
+    public function index()
     {
         $listrikPenghuni = Listrik::where('id_user', Auth::user()->id)->get();
         $listrikSecurity = Listrik::join('users', 'listriks.id_user', '=', 'users.id')->select('users.*', 'listriks.*')->get();
@@ -38,5 +38,19 @@ class ListrikController extends Controller
             'status' => "Menunggu"
         ]);
         return redirect()->route('listrik.index')->with('success', 'Data berhasil ditambah');
+    }
+
+    public function detail($id)
+    {
+        $detailListrik = Listrik::join('users', 'listriks.id_user', '=', 'users.id')->select('users.*', 'listriks.*')->where('listriks.id', $id)->get();
+        return view('listrik.detail', compact('detailListrik'));
+    }
+
+    public function updateStatus($id)
+    {
+        $data = Listrik::where('id', $id)->first();
+        $data->status = 'Selesai';
+        $data->update();
+        return redirect()->back()->with('success', 'Token listrik berhasil dimasukkan');
     }
 }

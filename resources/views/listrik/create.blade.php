@@ -5,7 +5,6 @@
 		<div class="row">
 			<div class="col-10">
 				<h1 class="mt-3">Tambah Data Token Listrik</h1>
-                
                 <form method="post" action="{{ route('listrik.store') }}">
                     @csrf
                     <div class="form-group">
@@ -18,8 +17,6 @@
                     <button type="submit" class="btn btn-primary">Tambah Data</button>
                     <a class="btn btn-danger" href="{{ url('listrik') }}">Kembali</a>
                 </form>
-				
-		
 			</div>
 		</div>
 	</div>
