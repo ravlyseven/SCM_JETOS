@@ -6,6 +6,17 @@
 			<div class="col-10">
 				<h1 class="mt-3">Edit Menu</h1>
                 
+                @if(session('warning'))
+                    <div class="alert alert-warning alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                            {{ session('warning') }}
+                        </div>
+                    </div>
+                @endif
+
                 <form method="post" action="/menu/{{ $menu->id }}" enctype="multipart/form-data">
                 @method('PUT')
                     @csrf

@@ -18,7 +18,7 @@ class CreateMenusTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('description', 2550);
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

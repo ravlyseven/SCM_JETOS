@@ -8,13 +8,16 @@ Auth::routes();
 Route::get('/', 'HomeController@welcome');
 Route::get('/home', 'AdminController@home');
 
-Route::resource('restaurant', 'RestaurantController');
 Route::resource('menu', 'MenuController');
 
 Route::get('order', 'OrderController@index');
 Route::post('order/{id}', 'OrderController@pesan');
 Route::delete('order/{id}', 'OrderController@delete');
-Route::get('checkout', 'OrderController@checkout');
+Route::get('order/checkout', 'OrderController@checkout');
+Route::get('order/running', 'OrderController@running');
+Route::get('order/done', 'OrderController@done');
+Route::get('order/payment/{id}', 'OrderController@payment');
+Route::get('order/show/{id}', 'OrderController@show');
 
 Route::get('listrik', 'ListrikController@index')->name('listrik.index');
 Route::get('listrik/create', 'ListrikController@create');

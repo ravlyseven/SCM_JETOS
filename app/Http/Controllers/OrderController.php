@@ -25,6 +25,17 @@ class OrderController extends Controller
         }
         return view('order/index', compact('order'));
     }
+    
+    public function show($id)
+    {
+        $order = Order::where('id', $id)->first();
+        if($order != null)
+        {
+            $orderdetails = Orderdetail::where('order_id', $order->id)->get();
+            return view('order/show', compact('order', 'orderdetails'));
+        }
+        return view('order/show', compact('order'));
+    }
 
     public function pesan(Request $request, $id)
     {
@@ -113,5 +124,42 @@ class OrderController extends Controller
         $order->update();
         
         return redirect('order');
+    }
+    
+    public function payment($id)
+    {
+        $order = Order::where('id', $id)->first();
+        $order->status = 2;
+        $order->update();
+        
+        return redirect()->back()->with('success', 'Orderan telah diselesaikan');
+    }
+    
+    public function running()
+    {
+        if(Auth::user()->role == 4)
+        {
+            $orders = Order::where('status',1)->get();
+            return view('order/running', compact('orders'));            
+        }
+        else
+        {
+            $orders = Order::where('user_id', Auth::user()->id)->where('status',1)->get();
+            return view('order/running', compact('orders'));
+        }
+    }
+    
+    public function done()
+    {
+        if(Auth::user()->role == 4)
+        {
+            $orders = Order::where('status',2)->get();
+            return view('order/running', compact('orders'));            
+        }
+        else
+        {
+            $orders = Order::where('user_id', Auth::user()->id)->where('status',2)->get();
+            return view('order/done', compact('orders'));
+        }
     }
 }

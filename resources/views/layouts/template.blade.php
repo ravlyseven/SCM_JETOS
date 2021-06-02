@@ -50,18 +50,18 @@
       <hr class="sidebar-divider my-0">
         
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('menu') }}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Restaurant Menu</span></a>
-      </li>
-      
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-      
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('order') }}">
-          <i class="fas fa-cart-arrow-down"></i>
-          <span>Pesanan</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Restaurant</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ url('menu') }}">Restaurant Menu</a>
+            <a class="collapse-item" href="{{ url('order') }}">Pesanan</a>
+            <a class="collapse-item" href="{{ url('order/running') }}">Pesanan Sedang Diproses</a>
+            <a class="collapse-item" href="{{ url('order/done') }}">Pesanan Selesai</a>
+          </div>
+        </div>
       </li>
       
       <!-- Divider -->

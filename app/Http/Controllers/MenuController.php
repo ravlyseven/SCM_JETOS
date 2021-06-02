@@ -29,10 +29,17 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
+        if($request->name == null){
+            return back()->withInput()->with('warning', 'Mohon Isi Semua Form');}
+        elseif($request->price == null){
+            return back()->withInput()->with('warning', 'Mohon Isi Semua Form');}
+        elseif($request->description == null){
+            return back()->withInput()->with('warning', 'Mohon Isi Semua Form');}
+
         $data = new Menu();
-        $data->name = $request->get('name');
-        $data->price = $request->get('price');
-        $data->description = $request->get('description');
+        $data->name = $request->name;
+        $data->price = $request->price;
+        $data->description = $request->description;
         if($request->hasFile('photo'))
         {
             $this->validate($request, ['photo' => 'required|image|mimes:jpeg,jpg,png,gif']);
@@ -40,7 +47,7 @@ class MenuController extends Controller
             $data->photo = $photo;
         }
         $data->save();
-        return redirect('menu');
+        return redirect('menu')->with('success', 'Menu Berhasil Ditambahkan');
     }
 
     public function show(Menu $menu)
@@ -55,6 +62,13 @@ class MenuController extends Controller
 
     public function update(Request $request, $id)
     {
+        if($request->name == null){
+            return back()->with('warning', 'Mohon Isi Semua Form');}
+        elseif($request->price == null){
+            return back()->with('warning', 'Mohon Isi Semua Form');}
+        elseif($request->description == null){
+            return back()->with('warning', 'Mohon Isi Semua Form');}
+
         $data = Menu::findOrFail($id);
         $data->name = $request->get('name');
         $data->price = $request->get('price');
@@ -69,7 +83,7 @@ class MenuController extends Controller
             $data->photo = $photo;
         }
         $data->save();
-        return redirect('menu');
+        return redirect('menu')->with('success', 'Menu Berhasil Diperbarui');;
     }
 
     public function destroy(Menu $menu)

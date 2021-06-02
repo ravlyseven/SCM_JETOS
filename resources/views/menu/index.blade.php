@@ -2,9 +2,22 @@
 
 @section('content')
     <div class="container-fluid">
-    @if(\Auth::user()->role == 0)
+    
+    @if(\Auth::user()->role == 4)
     <a href="menu/create"class="btn btn-primary ml-3 mb-3">Tambah Data</a>
     @endif
+
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
+    
         <div class="row">
             <!-- Tampilan Menu -->
             @foreach($menus as $menu)
@@ -23,7 +36,7 @@
                                 <div class="h6 mb-0 font-weight-bold text-gray-800" align="left">Rp. {{ number_format($menu->price) }}</div>
                                 </a>
 
-                                @if(\Auth::user()->role == 0)
+                                @if(Auth::user()->role == 4)
                                 <a class="btn btn-primary" href="menu/{{ $menu->id }}/edit" class="card-link">Ubah</a>
                                 <form action="menu/{{ $menu->id }}" method="post" class="d-inline">
                                     @method('delete')
