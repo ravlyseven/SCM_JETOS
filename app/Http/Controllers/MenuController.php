@@ -90,6 +90,6 @@ class MenuController extends Controller
     {
         Menu::destroy($menu->id);
         \Storage::delete('public', $menu->photo);
-        return redirect('/menu');
+        return back()->with('danger', 'Menu Berhasil Dihapus');
     }
 }

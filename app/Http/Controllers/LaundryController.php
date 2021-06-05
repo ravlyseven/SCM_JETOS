@@ -16,9 +16,9 @@ class LaundryController extends Controller
 
     public function index()
     {
-        $laundryorder = Laundry::where('id_user', Auth::user()->id)->get();
-        $laundry = Laundry::all()->get();
-        return view('laundry.index', compact('laundryorder', 'laundry'));
+        $laundrypenghuni = Laundry::where('user_id', Auth::user()->id)->get();
+        $laundryadmin = Laundry::all();
+        return view('laundry.index', compact('laundrypenghuni', 'laundryadmin'));
     }
 
     public function create()
@@ -28,29 +28,43 @@ class LaundryController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'token' => ['required', 'string', 'max:20', 'min:20', 'regex:/^[0-9]*$/']
-        ]);
-        Listrik::create([
-            'id_user' => Auth::user()->id,
-            'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
-            'token' => $request->token,
-            'status' => "Menunggu"
-        ]);
-        return redirect()->route('listrik.index')->with('success', 'Data berhasil ditambah');
+        $data = new Laundry();
+        $data->user_id = Auth::user()->id;
+        $data->tanggal = Carbon::now()->setTimezone('Asia/Jakarta');
+        $data->berat = $request->berat;
+        $data->tarif = $request->berat*6;
+        $data->status = "Menunggu";
+        $data->save();
+
+        return redirect()->route('laundry.index')->with('success', 'Data berhasil ditambah');
     }
 
     public function detail($id)
     {
-        $detailListrik = Listrik::join('users', 'listriks.id_user', '=', 'users.id')->select('users.*', 'listriks.*')->where('listriks.id', $id)->get();
-        return view('listrik.detail', compact('detailListrik'));
+        $laundry = Laundry::where('id', $id)->first();
+        return view('laundry.detail', compact('laundry'));
+    }
+
+    public function edit($id)
+    {
+        $laundry = Laundry::where('id', $id)->first();
+        return view('laundry.edit', compact('laundry'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $laundry = Laundry::where('id', $id)->first();
+        $laundry->berat = $request->berat;
+        $laundry->tarif = $request->berat*6;
+        $laundry->update();
+        return view('laundry.detail', compact('laundry'))->with('success', 'Tarif Telah Diubah');
     }
 
     public function updateStatus($id)
     {
-        $data = Listrik::where('id', $id)->first();
+        $data = Laundry::where('id', $id)->first();
         $data->status = 'Selesai';
         $data->update();
-        return redirect()->back()->with('success', 'Token listrik berhasil dimasukkan');
+        return redirect()->back()->with('success', 'Transaksi Selesai');
     }
 }

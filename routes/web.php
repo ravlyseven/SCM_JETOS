@@ -24,3 +24,11 @@ Route::get('listrik/create', 'ListrikController@create');
 Route::post('listrik/create', 'ListrikController@store')->name('listrik.store');
 Route::get('listrik/detail/{id}', 'ListrikController@detail')->name('listrik.detail');
 Route::get('listrik/update/{id}', 'ListrikController@updateStatus')->name('listrik.update');
+
+Route::get('laundry', 'LaundryController@index')->name('laundry.index');
+Route::get('laundry/create', 'LaundryController@create');
+Route::post('laundry/create', 'LaundryController@store')->name('laundry.store');
+Route::get('laundry/detail/{id}', 'LaundryController@detail')->name('laundry.detail');
+Route::get('laundry/edit/{id}', 'LaundryController@edit')->name('laundry.edit');
+Route::post('laundry/update/{id}', 'LaundryController@update')->name('laundry.update');
+Route::get('laundry/update/{id}', 'LaundryController@updateStatus')->name('laundry.updateStatus');
