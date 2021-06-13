@@ -75,4 +75,12 @@ class AdminController extends Controller
         $data->save();
         return redirect()->route('admin.detail', ['data' => $data, 'id' => $id])->with('success', 'Bukti Pembayaran Telah Diterima');
     }
+    
+    public function updateStatus($id)
+    {
+        $data = Admin::where('id', $id)->first();
+        $data->status = 'Selesai';
+        $data->update();
+        return redirect()->back()->with('success', 'Transaksi Selesai');
+    }
 }

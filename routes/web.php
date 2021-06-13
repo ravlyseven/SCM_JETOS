@@ -33,6 +33,10 @@ Route::get('laundry/edit/{id}', 'LaundryController@edit')->name('laundry.edit');
 Route::post('laundry/update/{id}', 'LaundryController@update')->name('laundry.update');
 Route::get('laundry/update/{id}', 'LaundryController@updateStatus')->name('laundry.updateStatus');
 
-
-Route::resource('admin', 'AdminController');
+Route::get('admin', 'AdminController@index')->name('admin.index');
+Route::get('admin/create', 'AdminController@create')->name('admin.create');
+Route::post('admin/create', 'AdminController@store')->name('admin.store');
 Route::get('admin/detail/{id}', 'AdminController@detail')->name('admin.detail');
+Route::get('admin/edit/{id}', 'AdminController@edit')->name('admin.edit');
+Route::post('admin/update/{id}', 'AdminController@update')->name('admin.update');
+Route::get('admin/update/{id}', 'AdminController@updateStatus')->name('admin.updateStatus');
