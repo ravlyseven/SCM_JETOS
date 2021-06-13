@@ -48,6 +48,15 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('admin') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Tagihan IPKL</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
         
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">

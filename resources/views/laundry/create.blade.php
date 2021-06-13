@@ -8,8 +8,8 @@
                 <form method="post" action="{{ route('laundry.store') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Berat Pakaian</label>
-                        <input type="tel" class="form-control" id="berat" value="{{ old('berat') }}" placeholder="Berat Pakaian" name="berat">
+                        <label for="name">Berat Pakaian (gram)</label>
+                        <input type="tel" class="form-control" id="berat" value="{{ old('berat') }}" placeholder="Berat pakaian dalam gram" name="berat">
                         @error('berat')
                         <code>{{ $message }}</code>
                         @enderror

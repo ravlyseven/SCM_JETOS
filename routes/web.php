@@ -32,3 +32,7 @@ Route::get('laundry/detail/{id}', 'LaundryController@detail')->name('laundry.det
 Route::get('laundry/edit/{id}', 'LaundryController@edit')->name('laundry.edit');
 Route::post('laundry/update/{id}', 'LaundryController@update')->name('laundry.update');
 Route::get('laundry/update/{id}', 'LaundryController@updateStatus')->name('laundry.updateStatus');
+
+
+Route::resource('admin', 'AdminController');
+Route::get('admin/detail/{id}', 'AdminController@detail')->name('admin.detail');

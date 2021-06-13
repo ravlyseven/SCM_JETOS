@@ -7,6 +7,7 @@
     <div class="card-header py-3 bg-gradient-primary">
         <h6 class="m-0 font-weight-bold text-light">Pesanan Makanan dan Minuman (Sedang Disiapkan)</h6>
     </div>
+
        
     <div class="card-body">
         <div class="table-responsive">
@@ -15,6 +16,9 @@
                     <tr>
                         <th>No</th>
                         <th>Tanggal</th>
+                        @if(Auth::user()->role == 4)
+                        <th>Nama Penghuni</th>
+                        @endif
                         <th>Jumlah Pesanan</th>
                         <th>Total Harga</th>
                         <th>Aksi</th>
@@ -27,6 +31,9 @@
                     <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $order->updated_at->format('d/m/y h:i') }}</td>
+                        @if(Auth::user()->role == 4)
+                        <td>{{ $order->user->name }}</td>
+                        @endif
                         <td>{{ $order->orderdetail->count() }}</td>
                         <td align="left">Rp. {{ number_format($order->total_price) }}</td>
                         <td>
