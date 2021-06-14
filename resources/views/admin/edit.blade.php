@@ -6,7 +6,7 @@
 			<div class="col-10">
 				<h1 class="mt-3">Update Data IPKL</h1>
                 <form method="post" action="{{ route('admin.update', $ipkl->id) }}" enctype="multipart/form-data">
-                @method('PUT')
+                
                     @csrf
                     <div class="form-group">
                         <label for="photo">Foto Bukti Pembayaran</label>

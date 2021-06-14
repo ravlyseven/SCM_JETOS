@@ -25,6 +25,10 @@
                             <td>{{ $listrik->name }}</td>
                         </tr>
                         <tr>
+                            <th>Nomor Unit</th>
+                            <td>{{ $listrik->alamat }}</td>
+                        </tr>
+                        <tr>
                             <th>Tanggal</th>
                             <td>{{ Carbon\Carbon::parse($listrik->tanggal)->translatedFormat('l, d F Y') }}</td>
                         </tr>

@@ -46,6 +46,7 @@
           <span>Home</span></a>
       </li>
 
+      @if(Auth::user()->role == 0||Auth::user()->role == 1)
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -54,7 +55,9 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Tagihan IPKL</span></a>
       </li>
+      @endif
 
+      @if(Auth::user()->role == 4||Auth::user()->role == 1)
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
         
@@ -72,7 +75,9 @@
           </div>
         </div>
       </li>
-      
+      @endif
+
+      @if(Auth::user()->role == 3||Auth::user()->role == 1)
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -81,7 +86,9 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Laundry</span></a>
       </li>
-      
+      @endif
+
+      @if(Auth::user()->role == 2||Auth::user()->role == 1)
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -90,6 +97,7 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Token Listrik</span></a>
       </li>
+      @endif
 
       <!-- close Button -->
       <div class="text-center d-none d-md-inline">

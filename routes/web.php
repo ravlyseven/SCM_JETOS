@@ -40,3 +40,7 @@ Route::get('admin/detail/{id}', 'AdminController@detail')->name('admin.detail');
 Route::get('admin/edit/{id}', 'AdminController@edit')->name('admin.edit');
 Route::post('admin/update/{id}', 'AdminController@update')->name('admin.update');
 Route::get('admin/update/{id}', 'AdminController@updateStatus')->name('admin.updateStatus');
+
+Route::get('/profile', 'UserController@show');
+Route::get('/profile/{id}/edit', 'UserController@editProfile');
+Route::post('/profile/{id}/update', 'UserController@updateProfile');

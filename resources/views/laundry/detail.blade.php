@@ -24,6 +24,10 @@
                             <td>{{ $laundry->user->name }}</td>
                         </tr>
                         <tr>
+                            <th>Nomor Unit</th>
+                            <td>{{ $laundry->user->alamat }}</td>
+                        </tr>
+                        <tr>
                             <th>Tanggal</th>
                             <td>{{ Carbon\Carbon::parse($laundry->tanggal)->translatedFormat('l, d F Y') }}</td>
                         </tr>

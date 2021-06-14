@@ -24,6 +24,10 @@
                             <td>{{ $ipkl->user->name }}</td>
                         </tr>
                         <tr>
+                            <th>Nomor Unit</th>
+                            <td>{{ $ipkl->user->alamat }}</td>
+                        </tr>
+                        <tr>
                             <th>Tanggal</th>
                             <td>{{ Carbon\Carbon::parse($ipkl->tanggal)->translatedFormat('l, d F Y') }}</td>
                         </tr>

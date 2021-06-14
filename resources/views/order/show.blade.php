@@ -78,6 +78,7 @@
 
             @if(Auth::user()->role == 4)
             <div>Nama Pembeli : {{$order->user->name}}</div>   
+            <div>Nomor Unit : {{$order->user->alamat}}</div>   
             @endif
 
         </div>
